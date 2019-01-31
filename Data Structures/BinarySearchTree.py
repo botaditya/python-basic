@@ -195,3 +195,48 @@ def InPreOrder(curr_node):
         nodeList.insert(0, curr_node.getLabel())
         nodeList = nodeList + InPreOrder(curr_node.getRight())
     return nodeList
+
+def testBinarySearchTree(): 
+    t = BinarySearchTree()
+    t.insert(8)
+    t.insert(3)
+    t.insert(6)
+    t.insert(1)
+    t.insert(10)
+    t.insert(14)
+    t.insert(13)
+    t.insert(4)
+    t.insert(7)
+
+    #Prints all the elements of the list in order traversal
+    print(t.__str__())
+
+    if(t.getNode(6) is not None):
+        print("The label 6 exists")
+    else:
+        print("The label 6 doesn't exist")
+
+    if(t.getNode(-1) is not None):
+        print("The label -1 exists")
+    else:
+        print("The label -1 doesn't exist")
+    
+    if(not t.empty()):
+        print(("Max Value: ", t.getMax().getLabel()))
+        print(("Min Value: ", t.getMin().getLabel()))
+    
+    t.delete(13)
+    t.delete(10)
+    t.delete(8)
+    t.delete(3)
+    t.delete(6)
+    t.delete(14)
+
+    #Gets all the elements of the tree In pre order
+    #And it prints them
+    list = t.traversalTree(InPreOrder, t.root)
+    for x in list:
+        print(x)
+
+if __name__ == "__main__":
+    testBinarySearchTree()
